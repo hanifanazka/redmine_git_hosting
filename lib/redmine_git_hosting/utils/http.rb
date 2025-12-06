@@ -52,6 +52,7 @@ module RedmineGitHosting
       def build_get_request(url)
         uri, http = build_http_request url
         request = Net::HTTP::Get.new uri.request_uri
+        request.basic_auth uri.user, uri.password if uri.user.present? && uri.password.present?
         [http, request]
       end
 
