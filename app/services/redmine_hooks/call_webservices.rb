@@ -107,7 +107,7 @@ module RedmineHooks
     end
 
     def do_call_webservice(payload)
-      post_failed, post_message = send(use_method, post_receive_url.url, { data: { payload: payload } })
+      post_failed, post_message = send(use_method, post_receive_url.url, data: { payload: payload })
 
       if post_failed
         logger.error 'Failed!'
